@@ -18,3 +18,15 @@
   (map (lambda (x)
          (map (lambda (y) (list x y) ) l)) l)
   )
+  
+  
+  #lang racket
+
+; encadena dos funciones g f, de tal modo que queden así (f g)
+(define compon
+  (lambda (f g x)
+    (f (g x))))
+
+; regresa verdadero o falso dependiendo de si encuentra un número impar en una lista de listas
+(define (impares? l)
+  (if (> (count odd? (apply append l)) 0) #t #f))
